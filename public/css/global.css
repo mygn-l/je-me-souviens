@@ -12,6 +12,8 @@ body {
   font-family: "Fredericka the Great";
 
   color: white;
+
+  font-size: 20px;
 }
 
 a {
@@ -20,6 +22,16 @@ a {
 
 p {
   margin: 0px;
+}
+
+button {
+  font-family: "Fredericka the Great";
+  color: white;
+  font-size: 20px;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .header-background {
@@ -77,8 +89,19 @@ main {
   padding: 0px 0px 0px 20px;
 }
 
+.button-div {
+  padding: 0px 0px 0px 20px;
+}
+
+.button-div button {
+  background-color: transparent;
+  border: 0px;
+  padding: 0px;
+  text-decoration: underline;
+}
+
 footer {
   height: 100%;
-  background-color: #31313b;
+  background-color: #8e837d;
   opacity: 0.7;
 }

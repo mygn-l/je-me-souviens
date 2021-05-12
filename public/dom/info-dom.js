@@ -33,7 +33,7 @@ export const link = function (inner, href, description) {
   return self;
 };
 
-export const button = function (inner, handler, description) {
+export const button = function (inner, description, handler) {
   let self = {};
 
   let button_div = document.createElement("div");
@@ -42,7 +42,7 @@ export const button = function (inner, handler, description) {
   let button = document.createElement("button");
   button.innerHTML = inner;
   button.addEventListener("click", handler);
-  link_div.appendChild(button);
+  button_div.appendChild(button);
 
   let button_p = document.createElement("p");
   button_p.innerHTML = description;
