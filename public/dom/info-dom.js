@@ -1,20 +1,23 @@
-const title = function (inner = "") {
+export const title = function (inner = "") {
   let self = {};
 
   let title_div = document.createElement("div");
+  title_div.setAttribute("class", "title-div");
 
   let title_h2 = document.createElement("h2");
   title_h2.innerHTML = inner;
+  title_div.appendChild(title_h2);
 
   self.element = title_div;
 
   return self;
 };
 
-const link = function (inner, href, description) {
+export const link = function (inner, href, description) {
   let self = {};
 
   let link_div = document.createElement("div");
+  link_div.setAttribute("class", "link-div");
 
   let link_a = document.createElement("a");
   link_a.innerHTML = inner;
@@ -23,13 +26,29 @@ const link = function (inner, href, description) {
 
   let link_p = document.createElement("p");
   link_p.innerHTML = description;
-  link_div.appendChild(link_a);
+  link_div.appendChild(link_p);
 
   self.element = link_div;
 
   return self;
 };
 
-export default info_dom = {
-  title: title,
+export const button = function (inner, handler, description) {
+  let self = {};
+
+  let button_div = document.createElement("div");
+  button_div.setAttribute("class", "button-div");
+
+  let button = document.createElement("button");
+  button.innerHTML = inner;
+  button.addEventListener("click", handler);
+  link_div.appendChild(button);
+
+  let button_p = document.createElement("p");
+  button_p.innerHTML = description;
+  button_div.appendChild(button_p);
+
+  self.element = button_div;
+
+  return self;
 };

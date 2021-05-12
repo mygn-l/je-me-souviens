@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
+
 html,
 body {
   margin: 0px;
@@ -7,22 +9,17 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
 
-  font-family: "Times New Roman";
-  /*font-family: "Arial";*/
+  font-family: "Fredericka the Great";
 
   color: white;
 }
 
-nav {
-  background-color: #222229;
-  opacity: 0.7;
-  padding: 10px;
+a {
+  color: white;
 }
 
-nav a {
-  text-decoration: none;
-  padding: 10px;
-  color: white;
+p {
+  margin: 0px;
 }
 
 .header-background {
@@ -32,13 +29,11 @@ nav a {
 }
 
 .header-background img {
-  margin-top: 10%;
   width: 100%;
   height: auto;
-  filter: brightness(0.3);
 }
 
-h1 {
+header h1 {
   margin: 0px;
   background-color: #31313b;
   padding: 50px;
@@ -46,15 +41,40 @@ h1 {
   opacity: 0.7;
 }
 
-body > div {
-  background-color: #31313b;
-  opacity: 0.9;
+header nav {
+  background-color: #222229;
+  opacity: 0.7;
+  padding: 10px;
 }
 
-p {
-  width: 50%;
-  height: 50%;
-  margin: auto;
+header nav a {
+  text-decoration: none;
+  padding: 10px;
+}
+
+body > h1 {
+  margin: 0px;
+  background-color: #31313b;
+  padding: 50px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+main {
+  background-color: #31313b;
+  opacity: 0.7;
+}
+
+.title-div {
+  padding: 30px 0px 0px 0px;
+}
+
+.title-div h2 {
+  margin: 0px 0px 0px 10px;
+}
+
+.link-div {
+  padding: 0px 0px 0px 20px;
 }
 
 footer {
