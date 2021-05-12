@@ -21,8 +21,8 @@ router.get("/info/reforms", function (req, res) {
 });
 
 router.get("/info/battle/:name", function (req, res) {
-  if (battle_config[req.body.name] !== undefined) {
-    res.send(JSON.stringify(battle_config[req.body.name]));
+  if (battle_config[req.params.name] !== undefined) {
+    res.send(JSON.stringify(battle_config[req.params.name]));
   }
 });
 
