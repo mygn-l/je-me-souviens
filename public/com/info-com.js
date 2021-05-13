@@ -27,18 +27,19 @@ let main = document.getElementsByTagName("main")[0];
 let intro_title = info_dom.title("LES PATRIOTES");
 main.appendChild(intro_title.element);
 
-let intro_link = info_dom.link("Introduction", "/info/intro", "Que va-t-on discuter?");
-main.appendChild(intro_link.element);
+let cause_title = info_dom.title("CAUSES");
+main.appendChild(cause_title.element);
 
-let reformes_title = info_dom.title("REFORMES");
-main.appendChild(reformes_title.element);
+let rebellion_link = info_dom.link("Des rebellions", "/info/rebellions", "Description a ajouter");
+main.appendChild(rebellion_link.element);
 
-let les_patriotes_link = info_dom.link("Partie Patriotes", "/info/reforms", "Qu'a ete la cause de cette rebellion?");
-main.appendChild(les_patriotes_link.element);
+let hommages_link = info_dom.link("Hommage", "/info/hommage", "Description a ajouter");
+main.appendChild(hommages_link.element);
 
-let rebellion_title = info_dom.title("REBELLION");
-main.appendChild(rebellion_title.element);
+let des_morts_link = info_dom.link("Des morts", "/info/morts", "Description a ajouter");
+main.appendChild(des_morts_link.element);
 
+/*
 let st_denis_button = info_dom.button("Bataille de St-Denis", "November 23, 1837", function () {
   GET("/info/battle/st_denis", async function (res) {
     let st_denis = await res.json();
@@ -52,3 +53,4 @@ let st_denis_button = info_dom.button("Bataille de St-Denis", "November 23, 1837
   });
 });
 main.appendChild(st_denis_button.element);
+*/
