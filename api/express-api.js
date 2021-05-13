@@ -2,6 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 
+const menu_config = require("../config/menu-config");
+
 const battle_config = require("../config/battle-config");
 
 router.get("/", function (req, res) {
@@ -12,12 +14,8 @@ router.get("/info", function (req, res) {
   res.render("pages/info.ejs");
 });
 
-router.get("/info/intro", function (req, res) {
-  res.render("pages/info/intro.ejs");
-});
-
-router.get("/info/reforms", function (req, res) {
-  res.render("pages/info/reforms.ejs");
+router.get("/info/menu", function (req, res) {
+  res.send(JSON.stringify(menu_config));
 });
 
 router.get("/info/battle/:name", function (req, res) {
