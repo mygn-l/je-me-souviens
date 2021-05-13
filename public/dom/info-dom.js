@@ -52,3 +52,18 @@ export const button = function (inner, description, handler) {
 
   return self;
 };
+
+export const section = function (inner) {
+  let self = {};
+
+  let section_div = document.createElement("div");
+  section_div.setAttribute("class", "section-div");
+
+  let small = document.createElement("small");
+  small.innerHTML = inner;
+  section_div.appendChild(small);
+
+  self.element = section_div;
+
+  return self;
+};

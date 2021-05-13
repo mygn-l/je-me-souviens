@@ -33,6 +33,12 @@ main.appendChild(cause_title.element);
 let rebellion_link = info_dom.link("Des rebellions", "/info/rebellions", "Description a ajouter");
 main.appendChild(rebellion_link.element);
 
+let cause_de_la_bataille = info_dom.section("Cause de la bataille");
+main.appendChild(cause_de_la_bataille.element);
+
+let crise_agricole = info_dom.section("Crise agricole");
+main.appendChild(crise_agricole.element);
+
 let hommages_link = info_dom.link("Hommage", "/info/hommage", "Description a ajouter");
 main.appendChild(hommages_link.element);
 

@@ -100,6 +100,10 @@ main {
   text-decoration: underline;
 }
 
+.section-div {
+  padding: 0px 0px 0px 30px;
+}
+
 footer {
   height: 100%;
   background-color: #8e837d;
