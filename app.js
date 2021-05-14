@@ -24,4 +24,4 @@ app.use("/public", express.static(__dirname + "/public"));
 
 app.use(express_api);
 
-server.listen(80 || process.env.PORT);
+server.listen(process.env.PORT || 80);
