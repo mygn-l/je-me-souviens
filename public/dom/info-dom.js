@@ -89,7 +89,20 @@ export const ui = function (menu) {
       case "link":
         self.menu_items.push(
           link(item.inner, function () {
+            page_div.style.display = "block";
+            menu_div.style.width = "20%";
+            menu_div.style.textAlign = "left";
             page_div.textContent = self.pages[item.href];
+            let close = document.createElement("button");
+            close.innerHTML = "X";
+            close.addEventListener("click", function () {
+              page_div.style.display = "none";
+              menu_div.style.width = "100%";
+              menu_div.style.textAlign = "center";
+              close.remove();
+            });
+            close.setAttribute("class", "close-button");
+            div.appendChild(close);
           })
         );
         break;

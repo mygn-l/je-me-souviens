@@ -24,11 +24,7 @@ router.get("/info/battle/:name", function (req, res) {
   }
 });
 
-router.get("/about", function (req, res) {
-  res.render("pages/about.ejs");
-});
-
-router.get(function (req, res) {
+router.use(function (req, res) {
   res.render("pages/default.ejs");
 });
 
