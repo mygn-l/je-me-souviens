@@ -94,7 +94,7 @@ export const ui = function (menu) {
             menu_div.style.textAlign = "left";
             page_div.textContent = self.pages[item.href];
             let close = document.createElement("button");
-            close.innerHTML = "X";
+            close.innerHTML = "FERMER LA PAGE X";
             close.addEventListener("click", function () {
               page_div.style.display = "none";
               menu_div.style.width = "100%";
