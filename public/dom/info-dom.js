@@ -96,10 +96,10 @@ export const ui = function (menu) {
             let close = document.createElement("button");
             close.innerHTML = "FERMER LA PAGE X";
             close.addEventListener("click", function () {
+              close.remove();
               page_div.style.display = "none";
               menu_div.style.width = "100%";
               menu_div.style.textAlign = "center";
-              close.remove();
             });
             close.setAttribute("class", "close-button");
             div.appendChild(close);
