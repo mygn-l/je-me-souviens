@@ -69,7 +69,7 @@ header nav a {
   padding: 10px;
 }
 
-body > h1 {
+body > h1, body > h2 {
   margin: 0px;
   background-color: #2e2a28;
   padding: 50px;

@@ -10,3 +10,5 @@ com.GET("/info/menu", async function (res) {
 
   main.appendChild(ui.element);
 });
+
+document.getElementsByTagName("title")[0].innerHTML = "Les Patriotes";
