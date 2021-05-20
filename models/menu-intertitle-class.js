@@ -1,7 +1,8 @@
 const intertitle = class {
-  constructor(inner) {
+  constructor(inner, href) {
     this.type = "intertitle";
     this.inner = inner;
+    this.href = href;
   }
 };
 

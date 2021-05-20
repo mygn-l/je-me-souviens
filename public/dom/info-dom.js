@@ -32,7 +32,7 @@ export const link = function (inner, handler) {
   return self;
 };
 
-export const intertitle = function (inner) {
+export const intertitle = function (inner, handler) {
   let self = {};
 
   let div = document.createElement("div");
@@ -40,6 +40,9 @@ export const intertitle = function (inner) {
 
   let small = document.createElement("small");
   small.innerHTML = inner;
+  small.addEventListener("click", function () {
+    handler();
+  });
   div.appendChild(small);
 
   self.element = div;
@@ -92,7 +95,22 @@ export const ui = function (menu) {
             page_div.style.display = "block";
             menu_div.style.width = "20%";
             menu_div.style.textAlign = "left";
-            page_div.textContent = self.pages[item.href];
+
+            let content = "";
+
+            for (let i = 0; i < Object.keys(self.pages[item.href]).length; i++) {
+              content += Object.keys(self.pages[item.href])[i];
+
+              content += "<br /><br/>";
+
+              content += self.pages[item.href][Object.keys(self.pages[item.href])[i]];
+
+              content += "<br /><br/>";
+            }
+
+            console.log(Object.keys(self.pages[item.href]));
+
+            page_div.innerHTML = content;
             let close = document.createElement("button");
             close.innerHTML = "FERMER LA PAGE X";
             close.addEventListener("click", function () {
@@ -105,9 +123,45 @@ export const ui = function (menu) {
             div.appendChild(close);
           })
         );
+
         break;
       case "intertitle":
-        self.menu_items.push(intertitle(item.inner));
+        self.menu_items.push(
+          intertitle(item.inner, function () {
+            page_div.style.display = "block";
+            menu_div.style.width = "20%";
+            menu_div.style.textAlign = "left";
+
+            let dirs = [];
+
+            for (let i = 0, temp = ""; i < item.href.length; i++) {
+              if (item.href[i] === "/") {
+                dirs.push(temp);
+                temp = "";
+              } else {
+                temp += item.href[i];
+              }
+              if (i + 1 === item.href.length) {
+                dirs.push(temp);
+              }
+            }
+
+            let content = self.pages[dirs[0]][dirs[1]];
+
+            page_div.innerHTML = content;
+            let close = document.createElement("button");
+            close.innerHTML = "FERMER LA PAGE X";
+            close.addEventListener("click", function () {
+              close.remove();
+              page_div.style.display = "none";
+              menu_div.style.width = "100%";
+              menu_div.style.textAlign = "center";
+            });
+            close.setAttribute("class", "close-button");
+            div.appendChild(close);
+          })
+        );
+
         break;
       case "description":
         self.menu_items.push(description(item.inner));

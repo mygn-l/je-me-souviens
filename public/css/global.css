@@ -102,6 +102,14 @@ main {
   box-sizing: border-box;
 }
 
+.link-div {
+  margin-left: 10px;
+}
+
+.intertitle-div {
+  margin-left: 20px;
+}
+
 .page-div {
   width: 75%;
   height: 100%;
