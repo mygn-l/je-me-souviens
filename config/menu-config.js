@@ -11,10 +11,12 @@ menu_config.list = [
   new menu_title_class("LES PATRIOTES"),
   new menu_link_class("Introduction", "les_patriotes_introduction"),
   new menu_intertitle_class("Introduction", "les_patriotes_introduction/Introduction"),
-  new menu_title_class("CAUSES"),
-  new menu_link_class("Des rebellions", "causes_des_rebellions"),
-  new menu_intertitle_class("Cause de la bataille", "causes_des_rebellions/Cause de la bataille"),
-  new menu_intertitle_class("Crise agricole", "causes_des_rebellions/Crise agricole"),
+  new menu_title_class("REVOLUTION PATRIOTES"),
+  new menu_link_class("Causes", "causes"),
+  new menu_intertitle_class("Crise agricole", "causes/Crise agricole"),
+  new menu_link_class("Batailles", "batailles"),
+  new menu_intertitle_class("St-Denis", "batailles/St-Denis"),
+  new menu_intertitle_class("St-Charles", "batailles/St-Charles"),
   new menu_link_class("Hommage aux morts", "causes_hommage_aux_morts"),
 ];
 
@@ -22,9 +24,12 @@ menu_config.pages = {
   les_patriotes_introduction: {
     Introduction: fs.readFileSync(__dirname + "/txt/Intro.txt", "utf8"),
   },
-  causes_des_rebellions: {
-    "Cause de la bataille": fs.readFileSync(__dirname + "/txt/Cause-de-la-bataille.txt", "utf8"),
+  causes: {
     "Crise agricole": fs.readFileSync(__dirname + "/txt/Crise-agricole.txt", "utf8"),
+  },
+  batailles: {
+    "St-Denis": fs.readFileSync(__dirname + "/txt/St-Denis.txt", "utf8"),
+    "St-Charles": fs.readFileSync(__dirname + "/txt/St-Charles.txt", "utf8"),
   },
 };
 
