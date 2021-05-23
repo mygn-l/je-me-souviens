@@ -24,8 +24,6 @@ menu_config.menu.append(new menu_class.link("Beauharnois", "Beauharnois"));
 menu_config.menu.append(new menu_class.link("Morres corner", "Morres corner"));
 menu_config.menu.append(new menu_class.intertitle("Hommages aux morts"));
 
-menu_config.menu.append(new menu_class.title("LA POLITIQUE"));
-
 menu_config.pages = new page_class.pages();
 
 let introduction = new page_class.doc("Introduction");
