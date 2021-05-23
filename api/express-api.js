@@ -11,7 +11,7 @@ router.get("/", function (req, res) {
 });
 
 router.get("/info", function (req, res) {
-  res.render("pages/info.ejs");
+  res.render("pages/patriotes.ejs");
 });
 
 router.get("/info/menu", function (req, res) {
@@ -22,6 +22,10 @@ router.get("/info/battle/:name", function (req, res) {
   if (battle_config[req.params.name] !== undefined) {
     res.send(JSON.stringify(battle_config[req.params.name]));
   }
+});
+
+router.get("/politiques", function (req, res) {
+  res.render("pages/politiques.ejs");
 });
 
 router.use(function (req, res) {
