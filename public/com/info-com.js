@@ -2,12 +2,11 @@ import * as info_dom from "/public/dom/info-dom.js";
 import * as com from "/public/lib/com.js";
 
 com.GET("/info/menu", async function (res) {
-  let menu = await res.json();
-
-  let ui = info_dom.ui(menu);
+  let info = await res.json();
 
   let main = document.getElementsByTagName("main")[0];
 
+  let ui = info_dom.ui(info);
   main.appendChild(ui.element);
 });
 

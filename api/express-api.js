@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const menu_config = require("../config/menu-config");
+const info_config = require("../config/info-config");
 
 const battle_config = require("../config/battle-config");
 
@@ -15,7 +15,7 @@ router.get("/info", function (req, res) {
 });
 
 router.get("/info/menu", function (req, res) {
-  res.send(JSON.stringify(menu_config));
+  res.send(JSON.stringify(info_config));
 });
 
 router.get("/info/battle/:name", function (req, res) {

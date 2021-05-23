@@ -1,76 +1,107 @@
-export const title = function (inner = "") {
+const doc = function (p) {
   let self = {};
 
-  let div = document.createElement("div");
-  div.setAttribute("class", "title-div");
+  self.name = p.name;
 
-  let h2 = document.createElement("h2");
-  h2.innerHTML = inner;
-  div.appendChild(h2);
+  let div = document.createElement("div");
+
+  for (let i = 0; i < p.d.length; i++) {
+    switch (p.d[i].type) {
+      case "title":
+        let h2 = document.createElement("h2");
+        h2.innerHTML = p.d[i].inner;
+        div.appendChild(h2);
+        break;
+      case "parag":
+        let pa = document.createElement("p");
+        pa.innerHTML = p.d[i].inner;
+        div.appendChild(pa);
+        break;
+      case "image":
+        let image_div = document.createElement("div");
+        let img = document.createElement("img");
+        img.src = p.d[i].src;
+        image_div.appendChild(img);
+        let small = document.createElement("small");
+        small.innerHTML = p.d[i].inner;
+        image_div.appendChild(small);
+        div.appendChild(image_div);
+        break;
+    }
+  }
 
   self.element = div;
 
   return self;
 };
 
-export const link = function (inner, handler) {
+const menu = function (m, pages, menu_div, page_div) {
   let self = {};
 
   let div = document.createElement("div");
-  div.setAttribute("class", "link-div");
 
-  let a = document.createElement("a");
-  a.innerHTML = inner;
-  a.addEventListener("click", function (e) {
-    e.preventDefault();
-    handler();
-  });
-  div.appendChild(a);
+  for (let i = 0; i < m.length; i++) {
+    switch (m[i].type) {
+      case "title":
+        let h2 = document.createElement("h2");
+        h2.innerHTML = m[i].inner;
+        div.appendChild(h2);
+        h2.setAttribute("class", "title");
+        break;
+      case "intertitle":
+        let h3 = document.createElement("h3");
+        h3.innerHTML = m[i].inner;
+        div.appendChild(h3);
+        h3.setAttribute("class", "intertitle");
+        break;
+      case "link":
+        let a = document.createElement("a");
+        a.innerHTML = m[i].inner;
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+          for (let j = 0; j < pages.length; j++) {
+            if (pages[j].name == m[i].href) {
+              menu_div.style.width = "20%";
+              menu_div.style.textAlign = "left";
+
+              page_div.style.display = "inline-block";
+              page_div.style.width = "80%";
+              page_div.innerHTML = "";
+              page_div.appendChild(pages[j].element);
+
+              let button = document.createElement("button");
+              button.innerHTML = "FERMER LA PAGE X";
+              button.addEventListener("click", function () {
+                page_div.style.display = "none";
+                menu_div.style.width = "100%";
+                menu_div.style.textAlign = "center";
+                button.remove();
+              });
+              button.setAttribute("class", "close-button");
+              page_div.appendChild(button);
+            }
+          }
+        });
+        a.setAttribute("class", "link");
+        div.appendChild(a);
+        div.appendChild(document.createElement("br"));
+        break;
+    }
+  }
 
   self.element = div;
 
   return self;
 };
 
-export const intertitle = function (inner, handler) {
+export const ui = function (info) {
   let self = {};
 
-  let div = document.createElement("div");
-  div.setAttribute("class", "intertitle-div");
+  self.menu = info.menu;
+  self.pages = info.pages;
 
-  let small = document.createElement("small");
-  small.innerHTML = inner;
-  small.addEventListener("click", function () {
-    handler();
-  });
-  div.appendChild(small);
-
-  self.element = div;
-
-  return self;
-};
-
-export const description = function (inner) {
-  let self = {};
-
-  let div = document.createElement("div");
-  div.setAttribute("class", "description-div");
-
-  let p = document.createElement("p");
-  p.innerHTML = inner;
-  div.appendChild(p);
-
-  self.element = div;
-
-  return self;
-};
-
-export const ui = function (menu) {
-  let self = {};
-
-  self.pages = menu.pages;
-
-  self.menu_items = [];
+  self.menu_items = undefined;
+  self.pages_items = [];
 
   let div = document.createElement("div");
   div.setAttribute("class", "ui-div");
@@ -83,97 +114,13 @@ export const ui = function (menu) {
   page_div.setAttribute("class", "page-div");
   div.appendChild(page_div);
 
-  for (let i = 0; i < menu.list.length; i++) {
-    let item = menu.list[i];
-    switch (item.type) {
-      case "title":
-        self.menu_items.push(title(item.inner));
-        break;
-      case "link":
-        self.menu_items.push(
-          link(item.inner, function () {
-            page_div.style.display = "block";
-            menu_div.style.width = "20%";
-            menu_div.style.textAlign = "left";
-
-            let content = "";
-
-            for (let i = 0; i < Object.keys(self.pages[item.href]).length; i++) {
-              content += Object.keys(self.pages[item.href])[i];
-
-              content += "<br /><br/>";
-
-              content += self.pages[item.href][Object.keys(self.pages[item.href])[i]];
-
-              content += "<br /><br/>";
-            }
-
-            console.log(Object.keys(self.pages[item.href]));
-
-            page_div.innerHTML = content;
-            let close = document.createElement("button");
-            close.innerHTML = "FERMER LA PAGE X";
-            close.addEventListener("click", function () {
-              close.remove();
-              page_div.style.display = "none";
-              menu_div.style.width = "100%";
-              menu_div.style.textAlign = "center";
-            });
-            close.setAttribute("class", "close-button");
-            div.appendChild(close);
-          })
-        );
-
-        break;
-      case "intertitle":
-        self.menu_items.push(
-          intertitle(item.inner, function () {
-            page_div.style.display = "block";
-            menu_div.style.width = "20%";
-            menu_div.style.textAlign = "left";
-
-            let dirs = [];
-
-            for (let i = 0, temp = ""; i < item.href.length; i++) {
-              if (item.href[i] === "/") {
-                dirs.push(temp);
-                temp = "";
-              } else {
-                temp += item.href[i];
-              }
-              if (i + 1 === item.href.length) {
-                dirs.push(temp);
-              }
-            }
-
-            let content = self.pages[dirs[0]][dirs[1]];
-
-            page_div.innerHTML = content;
-            let close = document.createElement("button");
-            close.innerHTML = "FERMER LA PAGE X";
-            close.addEventListener("click", function () {
-              close.remove();
-              page_div.style.display = "none";
-              menu_div.style.width = "100%";
-              menu_div.style.textAlign = "center";
-            });
-            close.setAttribute("class", "close-button");
-            div.appendChild(close);
-          })
-        );
-
-        break;
-      case "description":
-        self.menu_items.push(description(item.inner));
-        break;
-    }
+  for (let i = 0; i < self.pages.p.length; i++) {
+    self.pages_items.push(doc(self.pages.p[i]));
   }
 
-  for (let i = 0; i < self.menu_items.length; i++) {
-    let item = self.menu_items[i];
+  self.menu_items = menu(self.menu.m, self.pages_items, menu_div, page_div);
 
-    menu_div.appendChild(item.element);
-  }
+  menu_div.appendChild(self.menu_items.element);
 
   self.element = div;
 
