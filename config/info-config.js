@@ -73,7 +73,7 @@ menu_config.pages.append(bakers_farm);
 let odeltown = new page_class.doc("Odeltown");
 odeltown.append(new page_class.title("ODELTOWN"));
 odeltown.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Odeltown.txt", "utf8")));
-odeltown.append(new page_class.image("Carte", "/public/img/odeltown.png"));
+odeltown.append(new page_class.image("Image", "/public/img/odeltown.png"));
 menu_config.pages.append(odeltown);
 
 let beauharnois = new page_class.doc("Beauharnois");
