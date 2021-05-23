@@ -15,6 +15,8 @@ const doc = function (p) {
       case "parag":
         let pa = document.createElement("p");
         pa.innerHTML = p.d[i].inner;
+        let br = document.createElement("br");
+        div.appendChild(br);
         div.appendChild(pa);
         break;
       case "image":

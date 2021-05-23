@@ -16,6 +16,7 @@ menu_config.menu.append(new menu_class.link("Crise agricole", "Crise agricole"))
 menu_config.menu.append(new menu_class.intertitle("Batailles"));
 menu_config.menu.append(new menu_class.link("St-Denis", "St-Denis"));
 menu_config.menu.append(new menu_class.link("St-Charles", "St-Charles"));
+menu_config.menu.append(new menu_class.intertitle("Petites batailles"));
 menu_config.menu.append(new menu_class.link("Lacolle", "Lacolle"));
 menu_config.menu.append(new menu_class.link("Bakers farm", "Bakers farm"));
 menu_config.menu.append(new menu_class.link("Odeltown", "Odeltown"));
@@ -31,6 +32,15 @@ let introduction = new page_class.doc("Introduction");
 introduction.append(new page_class.title("INTRODUCTION"));
 introduction.append(
   new page_class.parag(fs.readFileSync(__dirname + "/txt/Introduction.txt", "utf8"))
+);
+introduction.append(
+  new page_class.parag(fs.readFileSync(__dirname + "/txt/Introduction-2.txt", "utf8"))
+);
+introduction.append(
+  new page_class.parag(fs.readFileSync(__dirname + "/txt/Introduction-3.txt", "utf8"))
+);
+introduction.append(
+  new page_class.parag(fs.readFileSync(__dirname + "/txt/Introduction-4.txt", "utf8"))
 );
 menu_config.pages.append(introduction);
 
