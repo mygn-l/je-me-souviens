@@ -50,6 +50,7 @@ menu_config.pages.append(causes);
 let st_denis = new page_class.doc("St-Denis");
 st_denis.append(new page_class.title("ST-DENIS"));
 st_denis.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/St-Denis.txt", "utf8")));
+st_denis.append(new page_class.image("Carte", "/public/img/st-denis.png"));
 menu_config.pages.append(st_denis);
 
 let st_charles = new page_class.doc("St-Charles");
@@ -61,6 +62,7 @@ menu_config.pages.append(st_charles);
 let lacolle = new page_class.doc("Lacolle");
 lacolle.append(new page_class.title("LACOLLE"));
 lacolle.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Lacolle.txt", "utf8")));
+lacolle.append(new page_class.image("Memoire", "/public/img/lacolle.png"));
 menu_config.pages.append(lacolle);
 
 let bakers_farm = new page_class.doc("Bakers farm");
@@ -71,6 +73,7 @@ menu_config.pages.append(bakers_farm);
 let odeltown = new page_class.doc("Odeltown");
 odeltown.append(new page_class.title("ODELTOWN"));
 odeltown.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Odeltown.txt", "utf8")));
+odeltown.append(new page_class.image("Carte", "/public/img/odeltown.png"));
 menu_config.pages.append(odeltown);
 
 let beauharnois = new page_class.doc("Beauharnois");

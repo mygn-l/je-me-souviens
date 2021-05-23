@@ -24,6 +24,11 @@ p {
   margin: 0px;
 }
 
+img {
+  width: 50%;
+  height: auto;
+}
+
 button {
   font-family: "Fredericka the Great";
   color: white;
