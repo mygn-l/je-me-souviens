@@ -28,6 +28,10 @@ router.get("/politiques", function (req, res) {
   res.render("pages/politiques.ejs");
 });
 
+router.get("/games", function (req, res) {
+  res.render("pages/games.ejs");
+});
+
 router.use(function (req, res) {
   res.render("pages/default.ejs");
 });
