@@ -10,17 +10,20 @@ const doc = function (p) {
       case "title":
         let h2 = document.createElement("h2");
         h2.innerHTML = p.d[i].inner;
+        h2.setAttribute("class", "page-title");
         div.appendChild(h2);
         break;
       case "parag":
         let pa = document.createElement("p");
         pa.innerHTML = p.d[i].inner;
+        pa.setAttribute("class", "page-parag");
         let br = document.createElement("br");
         div.appendChild(br);
         div.appendChild(pa);
         break;
       case "image":
         let image_div = document.createElement("div");
+        image_div.setAttribute("class", "page-image");
         let img = document.createElement("img");
         img.src = p.d[i].src;
         image_div.appendChild(img);
@@ -48,13 +51,13 @@ const menu = function (m, pages, menu_div, page_div) {
         let h2 = document.createElement("h2");
         h2.innerHTML = m[i].inner;
         div.appendChild(h2);
-        h2.setAttribute("class", "title");
+        h2.setAttribute("class", "menu-title");
         break;
       case "intertitle":
         let h3 = document.createElement("h3");
         h3.innerHTML = m[i].inner;
         div.appendChild(h3);
-        h3.setAttribute("class", "intertitle");
+        h3.setAttribute("class", "menu-intertitle");
         break;
       case "link":
         let a = document.createElement("a");
@@ -63,20 +66,19 @@ const menu = function (m, pages, menu_div, page_div) {
           e.preventDefault();
           for (let j = 0; j < pages.length; j++) {
             if (pages[j].name == m[i].href) {
-              menu_div.style.width = "20%";
-              menu_div.style.textAlign = "left";
+              menu_div.style.display = "none";
 
               page_div.style.display = "inline-block";
-              page_div.style.width = "80%";
               page_div.innerHTML = "";
               page_div.appendChild(pages[j].element);
 
               let button = document.createElement("button");
               button.innerHTML = "FERMER LA PAGE X";
               button.addEventListener("click", function () {
+                menu_div.style.display = "inline-block";
+
                 page_div.style.display = "none";
-                menu_div.style.width = "100%";
-                menu_div.style.textAlign = "center";
+
                 button.remove();
               });
               button.setAttribute("class", "close-button");
@@ -84,7 +86,7 @@ const menu = function (m, pages, menu_div, page_div) {
             }
           }
         });
-        a.setAttribute("class", "link");
+        a.setAttribute("class", "menu-link");
         div.appendChild(a);
         div.appendChild(document.createElement("br"));
         break;
