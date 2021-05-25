@@ -114,6 +114,7 @@ main {
 }
 
 .page-div {
+  width: 100%;
   display: none;
   padding: 100px;
   box-sizing: border-box;
@@ -122,11 +123,18 @@ main {
 
 .col-div {
   display: inline-block;
+  vertical-align: middle;
+}
+
+.page-title {
+  text-align: center;
 }
 
 .page-image {
+  display: block;
   width: 50%;
   margin: auto;
+  padding: 0px 0px 20px;
 }
 
 .page-image img {
