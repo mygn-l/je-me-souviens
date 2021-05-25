@@ -120,6 +120,10 @@ main {
   text-align: justify;
 }
 
+.col-div {
+  display: inline-block;
+}
+
 .page-image {
   width: 50%;
   margin: auto;

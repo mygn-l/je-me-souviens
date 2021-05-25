@@ -6,33 +6,39 @@ const doc = function (p) {
   let div = document.createElement("div");
 
   for (let i = 0; i < p.d.length; i++) {
-    switch (p.d[i].type) {
-      case "title":
-        let h2 = document.createElement("h2");
-        h2.innerHTML = p.d[i].inner;
-        h2.setAttribute("class", "page-title");
-        div.appendChild(h2);
-        break;
-      case "parag":
-        let pa = document.createElement("p");
-        pa.innerHTML = p.d[i].inner;
-        pa.setAttribute("class", "page-parag");
-        let br = document.createElement("br");
-        div.appendChild(br);
-        div.appendChild(pa);
-        break;
-      case "image":
-        let image_div = document.createElement("div");
-        image_div.setAttribute("class", "page-image");
-        let img = document.createElement("img");
-        img.src = p.d[i].src;
-        image_div.appendChild(img);
-        let small = document.createElement("small");
-        small.innerHTML = p.d[i].inner;
-        image_div.appendChild(small);
-        div.appendChild(image_div);
-        break;
+    let col_div = document.createElement("div");
+    col_div.style.width = Math.floor((1 / p.d.length) * 100) + "%";
+    col_div.setAttribute("class", "col-div");
+    for (let j = 0; j < p.d[i].c.length; j++) {
+      switch (p.d[i].c[j].type) {
+        case "title":
+          let h2 = document.createElement("h2");
+          h2.innerHTML = p.d[i].c[j].inner;
+          h2.setAttribute("class", "page-title");
+          col_div.appendChild(h2);
+          break;
+        case "parag":
+          let pa = document.createElement("p");
+          pa.innerHTML = p.d[i].c[j].inner;
+          pa.setAttribute("class", "page-parag");
+          let br = document.createElement("br");
+          col_div.appendChild(br);
+          col_div.appendChild(pa);
+          break;
+        case "image":
+          let image_div = document.createElement("div");
+          image_div.setAttribute("class", "page-image");
+          let img = document.createElement("img");
+          img.src = p.d[i].c[j].src;
+          image_div.appendChild(img);
+          let small = document.createElement("small");
+          small.innerHTML = p.d[i].c[j].inner;
+          image_div.appendChild(small);
+          col_div.appendChild(image_div);
+          break;
+      }
     }
+    div.appendChild(col_div);
   }
 
   self.element = div;

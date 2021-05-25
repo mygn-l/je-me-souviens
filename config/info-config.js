@@ -41,124 +41,190 @@ info_config.menu.append(new menu_class.link("Hommage aux morts", "Hommage aux mo
 
 info_config.pages = new page_class.pages();
 
-let introduction = new page_class.doc("Introduction");
-introduction.append(new page_class.title("INTRODUCTION"));
-introduction.append(
-  new page_class.parag(fs.readFileSync(__dirname + "/txt/Introduction.txt", "utf8"))
-);
-introduction.append(
-  new page_class.parag(fs.readFileSync(__dirname + "/txt/Introduction-2.txt", "utf8"))
-);
-introduction.append(
-  new page_class.parag(fs.readFileSync(__dirname + "/txt/Introduction-3.txt", "utf8"))
-);
-introduction.append(
-  new page_class.parag(fs.readFileSync(__dirname + "/txt/Introduction-4.txt", "utf8"))
-);
-info_config.pages.append(introduction);
+{
+  let doc = new page_class.doc("Introduction");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("INTRODUCTION"));
+  col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Introduction.txt", "utf8")));
+  col_1.append(
+    new page_class.parag(fs.readFileSync(__dirname + "/txt/Introduction-2.txt", "utf8"))
+  );
+  col_1.append(
+    new page_class.parag(fs.readFileSync(__dirname + "/txt/Introduction-3.txt", "utf8"))
+  );
+  col_1.append(
+    new page_class.parag(fs.readFileSync(__dirname + "/txt/Introduction-4.txt", "utf8"))
+  );
+  doc.append(col_1);
+  info_config.pages.append(doc);
+}
 
-let crise_agricole = new page_class.doc("Crise agricole");
-crise_agricole.append(new page_class.title("CRISE AGRICOLE"));
-crise_agricole.append(
-  new page_class.parag(fs.readFileSync(__dirname + "/txt/Crise-agricole.txt", "utf8"))
-);
-info_config.pages.append(crise_agricole);
+{
+  let doc = new page_class.doc("Crise agricole");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("CRISE AGRICOLE"));
+  col_1.append(
+    new page_class.parag(fs.readFileSync(__dirname + "/txt/Crise-agricole.txt", "utf8"))
+  );
+  doc.append(col_1);
+  info_config.pages.append(doc);
+}
 
-let crise_subside = new page_class.doc("Crise subside");
-crise_subside.append(new page_class.title("CRISE DES SUBSIDES"));
-crise_subside.append(
-  new page_class.parag(fs.readFileSync(__dirname + "/txt/Crise-Subside.txt", "utf8"))
-);
-info_config.pages.append(crise_subside);
+{
+  let doc = new page_class.doc("Crise subside");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("CRISE DES SUBSIDES"));
+  col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Crise-Subside.txt", "utf8")));
+  doc.append(col_1);
+  info_config.pages.append(doc);
+}
 
-let st_denis = new page_class.doc("St-Denis");
-st_denis.append(new page_class.title("ST-DENIS"));
-st_denis.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/St-Denis.txt", "utf8")));
-st_denis.append(new page_class.image("Carte", "/public/img/st-denis.png"));
-info_config.pages.append(st_denis);
+{
+  let doc = new page_class.doc("St-Denis");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("ST-DENIS"));
+  col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/St-Denis.txt", "utf8")));
+  let col_2 = new page_class.column();
+  col_2.append(new page_class.image("Carte", "/public/img/st-denis.png"));
+  doc.append(col_1);
+  doc.append(col_2);
+  info_config.pages.append(doc);
+}
 
-let st_charles = new page_class.doc("St-Charles");
-st_charles.append(new page_class.title("ST-CHARLES"));
-st_charles.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/St-Charles.txt", "utf8")));
-st_charles.append(new page_class.image("Carte", "/public/img/st-charles.png"));
-info_config.pages.append(st_charles);
+{
+  let doc = new page_class.doc("St-Charles");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("ST-CHARLES"));
+  col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/St-Charles.txt", "utf8")));
+  let col_2 = new page_class.column();
+  col_2.append(new page_class.image("Carte", "/public/img/st-charles.png"));
+  doc.append(col_1);
+  doc.append(col_2);
+  info_config.pages.append(doc);
+}
 
-let lacolle = new page_class.doc("Lacolle");
-lacolle.append(new page_class.title("LACOLLE"));
-lacolle.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Lacolle.txt", "utf8")));
-lacolle.append(new page_class.image("Memoire", "/public/img/lacolle.png"));
-info_config.pages.append(lacolle);
+{
+  let doc = new page_class.doc("Lacolle");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("LACOLLE"));
+  col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Lacolle.txt", "utf8")));
+  let col_2 = new page_class.column();
+  col_2.append(new page_class.image("Memoire", "/public/img/lacolle.png"));
+  doc.append(col_1);
+  doc.append(col_2);
+  info_config.pages.append(doc);
+}
 
-let bakers_farm = new page_class.doc("Bakers farm");
-bakers_farm.append(new page_class.title("BAKERS FARM"));
-bakers_farm.append(
-  new page_class.parag(fs.readFileSync(__dirname + "/txt/Bakers-Farm.txt", "utf8"))
-);
-info_config.pages.append(bakers_farm);
+{
+  let doc = new page_class.doc("Bakers farm");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("BAKERS FARM"));
+  col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Bakers-Farm.txt", "utf8")));
+  doc.append(col_1);
+  info_config.pages.append(doc);
+}
 
-let odeltown = new page_class.doc("Odeltown");
-odeltown.append(new page_class.title("ODELTOWN"));
-odeltown.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Odeltown.txt", "utf8")));
-odeltown.append(new page_class.image("Image", "/public/img/odeltown.png"));
-info_config.pages.append(odeltown);
+{
+  let doc = new page_class.doc("Odeltown");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("ODELTOWN"));
+  col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Odeltown.txt", "utf8")));
+  let col_2 = new page_class.column();
+  col_2.append(new page_class.image("Image", "/public/img/odeltown.png"));
+  doc.append(col_1);
+  doc.append(col_2);
+  info_config.pages.append(doc);
+}
 
-let beauharnois = new page_class.doc("Beauharnois");
-beauharnois.append(new page_class.title("BEAUHARNOIS"));
-beauharnois.append(
-  new page_class.parag(fs.readFileSync(__dirname + "/txt//Beauharnois.txt", "utf8"))
-);
-info_config.pages.append(beauharnois);
+{
+  let doc = new page_class.doc("Beauharnois");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("BEAUHARNOIS"));
+  col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt//Beauharnois.txt", "utf8")));
+  doc.append(col_1);
+  info_config.pages.append(doc);
+}
 
-let morres_corner = new page_class.doc("Morres corner");
-morres_corner.append(new page_class.title("MORRES CORNER"));
-morres_corner.append(
-  new page_class.parag(fs.readFileSync(__dirname + "/txt/Morres-Corner.txt", "utf8"))
-);
-info_config.pages.append(morres_corner);
+{
+  let doc = new page_class.doc("Morres corner");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("MORRES CORNER"));
+  col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Morres-Corner.txt", "utf8")));
+  doc.append(col_1);
+  info_config.pages.append(doc);
+}
 
-let rebellion_haut_canada = new page_class.doc("Rebellion du Haut Canada");
-rebellion_haut_canada.append(new page_class.title("REBELLION DU HAUT CANADA"));
-rebellion_haut_canada.append(
-  new page_class.parag(fs.readFileSync(__dirname + "/txt/Rebellion-Haut-Canada.txt", "utf8"))
-);
-info_config.pages.append(rebellion_haut_canada);
+{
+  let doc = new page_class.doc("Rebellion du Haut Canada");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("REBELLION DU HAUT CANADA"));
+  col_1.append(
+    new page_class.parag(fs.readFileSync(__dirname + "/txt/Rebellion-Haut-Canada.txt", "utf8"))
+  );
+  doc.append(col_1);
+  info_config.pages.append(doc);
+}
 
-let apres_guerre = new page_class.doc("Apres guerre");
-apres_guerre.append(new page_class.title("APRES GUERRE"));
-apres_guerre.append(
-  new page_class.parag(fs.readFileSync(__dirname + "/txt/Apres-Guerre.txt", "utf8"))
-);
-info_config.pages.append(apres_guerre);
+{
+  let doc = new page_class.doc("Apres guerre");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("APRES GUERRE"));
+  col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Apres-Guerre.txt", "utf8")));
+  doc.append(col_1);
+  info_config.pages.append(doc);
+}
 
-let rapport_durham = new page_class.doc("Rapport durham");
-rapport_durham.append(new page_class.title("RAPPORT DURHAM"));
-rapport_durham.append(
-  new page_class.parag(fs.readFileSync(__dirname + "/txt/Rapport-durham.txt", "utf8"))
-);
-info_config.pages.append(rapport_durham);
+{
+  let doc = new page_class.doc("Rapport durham");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("RAPPORT DURHAM"));
+  col_1.append(
+    new page_class.parag(fs.readFileSync(__dirname + "/txt/Rapport-durham.txt", "utf8"))
+  );
+  doc.append(col_1);
+  info_config.pages.append(doc);
+}
 
-let mouvement_revolutionnaire = new page_class.doc("Mouvements revolutionnaires");
-mouvement_revolutionnaire.append(new page_class.title("MOUVEMENTS REVOLUTIONNAIRES"));
-mouvement_revolutionnaire.append(
-  new page_class.parag(fs.readFileSync(__dirname + "/txt/Mouvements-Revolutionnaires.txt", "utf8"))
-);
-info_config.pages.append(mouvement_revolutionnaire);
+{
+  let doc = new page_class.doc("Mouvements revolutionnaires");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("MOUVEMENTS REVOLUTIONNAIRES"));
+  col_1.append(
+    new page_class.parag(
+      fs.readFileSync(__dirname + "/txt/Mouvements-Revolutionnaires.txt", "utf8")
+    )
+  );
+  doc.append(col_1);
+  info_config.pages.append(doc);
+}
 
-let acte_union = new page_class.doc("Acte d'union");
-acte_union.append(new page_class.title("ACTE D'UNION"));
-acte_union.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Acte-union.txt", "utf8")));
-info_config.pages.append(acte_union);
+{
+  let doc = new page_class.doc("Acte d'union");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("ACTE D'UNION"));
+  col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Acte-union.txt", "utf8")));
+  doc.append(col_1);
+  info_config.pages.append(doc);
+}
 
-let hommage = new page_class.doc("Hommage aux morts");
-hommage.append(new page_class.title("HOMMAGE AUX MORTS"));
-hommage.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Hommage.txt", "utf8")));
-info_config.pages.append(hommage);
+{
+  let doc = new page_class.doc("Hommage aux morts");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("HOMMAGE AUX MORTS"));
+  col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Hommage.txt", "utf8")));
+  doc.append(col_1);
+  info_config.pages.append(doc);
+}
 
-let acte_constitutionnel = new page_class.doc("Acte constitutionnel");
-acte_constitutionnel.append(new page_class.title("ACTE CONSTITUTIONNEL"));
-acte_constitutionnel.append(
-  new page_class.parag(fs.readFileSync(__dirname + "/txt/Acte-constitutionnel.txt", "utf8"))
-);
-info_config.pages.append(acte_constitutionnel);
+{
+  let doc = new page_class.doc("Acte constitutionnel");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("ACTE CONSTITUTIONNEL"));
+  col_1.append(
+    new page_class.parag(fs.readFileSync(__dirname + "/txt/Acte-constitutionnel.txt", "utf8"))
+  );
+  doc.append(col_1);
+  info_config.pages.append(doc);
+}
 
 module.exports = info_config;

@@ -24,6 +24,15 @@ module.exports.parag = class extends item {
   }
 };
 
+module.exports.column = class {
+  constructor() {
+    this.c = [];
+  }
+  append(item) {
+    this.c.push(item);
+  }
+};
+
 module.exports.doc = class {
   constructor(name) {
     this.name = name;
