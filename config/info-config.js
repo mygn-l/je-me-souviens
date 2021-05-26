@@ -10,7 +10,7 @@ info_config.menu = new menu_class.menu();
 info_config.menu.append(new menu_class.title("LES PATRIOTES"));
 info_config.menu.append(new menu_class.link("Introduction", "Introduction"));
 
-info_config.menu.append(new menu_class.title("LA REVOLUTION PATRIOTE"));
+info_config.menu.append(new menu_class.title("LA RÉVOLUTION PATRIOTE"));
 info_config.menu.append(new menu_class.intertitle("Causes"));
 info_config.menu.append(new menu_class.link("Crise agricole", "Crise agricole"));
 info_config.menu.append(new menu_class.link("Crise subside", "Crise subside"));
@@ -24,17 +24,17 @@ info_config.menu.append(new menu_class.link("Odeltown", "Odeltown"));
 info_config.menu.append(new menu_class.link("Beauharnois", "Beauharnois"));
 info_config.menu.append(new menu_class.link("Morres corner", "Morres corner"));
 info_config.menu.append(
-  new menu_class.link("Rebellion du Haut Canada", "Rebellion du Haut Canada")
+  new menu_class.link("Rebéllion du Haut Canada", "Rebellion du Haut Canada")
 );
-info_config.menu.append(new menu_class.intertitle("Apres guerre"));
-info_config.menu.append(new menu_class.link("Apres guerre", "Apres guerre"));
+info_config.menu.append(new menu_class.intertitle("Après guerre"));
+info_config.menu.append(new menu_class.link("Après guerre", "Apres guerre"));
 info_config.menu.append(new menu_class.link("Rapport durham", "Rapport durham"));
 
 info_config.menu.append(new menu_class.title("LES POLITIQUES"));
 info_config.menu.append(new menu_class.link("Acte d'union", "Acte d'union"));
 info_config.menu.append(new menu_class.link("Acte constitutionnel", "Acte constitutionnel"));
 info_config.menu.append(
-  new menu_class.link("Mouvements revolutionnaires", "Mouvements revolutionnaires")
+  new menu_class.link("Mouvements révolutionnaires", "Mouvements revolutionnaires")
 );
 
 info_config.menu.append(new menu_class.link("Hommage aux morts", "Hommage aux morts"));
@@ -157,7 +157,7 @@ info_config.pages = new page_class.pages();
 {
   let doc = new page_class.doc("Rebellion du Haut Canada");
   let col_1 = new page_class.column();
-  col_1.append(new page_class.title("REBELLION DU HAUT CANADA"));
+  col_1.append(new page_class.title("REBÉLLION DU HAUT CANADA"));
   col_1.append(
     new page_class.parag(fs.readFileSync(__dirname + "/txt/Rebellion-Haut-Canada.txt", "utf8"))
   );
@@ -168,7 +168,7 @@ info_config.pages = new page_class.pages();
 {
   let doc = new page_class.doc("Apres guerre");
   let col_1 = new page_class.column();
-  col_1.append(new page_class.title("APRES GUERRE"));
+  col_1.append(new page_class.title("APRÈS GUERRE"));
   col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Apres-Guerre.txt", "utf8")));
   doc.append(col_1);
   info_config.pages.append(doc);
@@ -188,7 +188,7 @@ info_config.pages = new page_class.pages();
 {
   let doc = new page_class.doc("Mouvements revolutionnaires");
   let col_1 = new page_class.column();
-  col_1.append(new page_class.title("MOUVEMENTS REVOLUTIONNAIRES"));
+  col_1.append(new page_class.title("MOUVEMENTS RÉVOLUTIONNAIRES"));
   col_1.append(
     new page_class.parag(
       fs.readFileSync(__dirname + "/txt/Mouvements-Revolutionnaires.txt", "utf8")
