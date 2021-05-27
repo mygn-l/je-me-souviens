@@ -224,7 +224,6 @@ info_config.pages = new page_class.pages();
   let doc = new page_class.doc("Hommage aux morts");
   let col_1 = new page_class.column();
   col_1.append(new page_class.title("HOMMAGE AUX MORTS"));
-  col_1.append(new page_class.image("Joseph-Narcisse Cardinal", "/public/img/cardinal.png"));
   col_1.append(new page_class.image("Joseph Duquet", "/public/img/duquet.png"));
   col_1.append(new page_class.image("Pierre-Théophile Decoigne", "/public/img/decoigne.png"));
   col_1.append(new page_class.image("Une marche ensemble...", "/public/img/decoigne-2.png"));
