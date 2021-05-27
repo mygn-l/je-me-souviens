@@ -68,6 +68,9 @@ info_config.pages = new page_class.pages();
     new page_class.parag(fs.readFileSync(__dirname + "/txt/Crise-agricole.txt", "utf8"))
   );
   doc.append(col_1);
+  let col_2 = new page_class.column();
+  col_2.append(new page_class.image("Graphique", "/public/img/crise-agricole.png"));
+  doc.append(col_2);
   info_config.pages.append(doc);
 }
 
@@ -226,7 +229,12 @@ info_config.pages = new page_class.pages();
   col_1.append(new page_class.image("Pierre-Théophile Decoigne", "/public/img/decoigne.png"));
   col_1.append(new page_class.image("Une marche ensemble...", "/public/img/decoigne-2.png"));
   col_1.append(new page_class.image("Charles Hindelang", "/public/img/hinderlang.png"));
-  col_1.append(new page_class.image("François-Marie-Thomas Chevalier de Lorimier", "/public/img/francois-marie-thomas.png"));
+  col_1.append(
+    new page_class.image(
+      "François-Marie-Thomas Chevalier de Lorimier",
+      "/public/img/francois-marie-thomas.png"
+    )
+  );
   col_1.append(new page_class.image("Bonus", "/public/img/bonus.png"));
   doc.append(col_1);
   info_config.pages.append(doc);
