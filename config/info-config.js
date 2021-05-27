@@ -17,6 +17,7 @@ info_config.menu.append(new menu_class.link("Crise subside", "Crise subside"));
 info_config.menu.append(new menu_class.intertitle("Batailles"));
 info_config.menu.append(new menu_class.link("St-Denis", "St-Denis"));
 info_config.menu.append(new menu_class.link("St-Charles", "St-Charles"));
+info_config.menu.append(new menu_class.link("St-Eustache", "St-Eustache"));
 info_config.menu.append(new menu_class.intertitle("Petites batailles"));
 info_config.menu.append(new menu_class.link("Lacolle", "Lacolle"));
 info_config.menu.append(new menu_class.link("Bakers farm", "Bakers farm"));
@@ -100,6 +101,15 @@ info_config.pages = new page_class.pages();
   col_2.append(new page_class.image("Carte", "/public/img/st-charles.png"));
   doc.append(col_1);
   doc.append(col_2);
+  info_config.pages.append(doc);
+}
+
+{
+  let doc = new page_class.doc("St-Eustache");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("ST-EUSTACHE"));
+  col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/St-Eustache.txt", "utf8")));
+  doc.append(col_1);
   info_config.pages.append(doc);
 }
 

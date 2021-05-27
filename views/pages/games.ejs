@@ -8,13 +8,16 @@
 
     <h1>Games</h1>
 
+    <div id="menu"></div>
     <main>
       <canvas id="screen"></canvas>
+
+      <div id="ui"></div>
     </main>
 
     <footer><%- include("../parts/footer") %></footer>
 
-    <script src="/public/dom/games-dom.js"></script>
-    <script src="/public/com/games-com.js"></script>
+    <script type="module" src="/public/dom/games-dom.js"></script>
+    <script type="module" src="/public/com/games-com.js"></script>
   </body>
 </html>
