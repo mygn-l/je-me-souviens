@@ -32,8 +32,8 @@ info_config.menu.append(new menu_class.link("Après guerre", "Apres guerre"));
 info_config.menu.append(new menu_class.link("Rapport durham", "Rapport durham"));
 
 info_config.menu.append(new menu_class.title("LES POLITIQUES"));
-info_config.menu.append(new menu_class.link("Acte d'union", "Acte d'union"));
 info_config.menu.append(new menu_class.link("Acte constitutionnel", "Acte constitutionnel"));
+info_config.menu.append(new menu_class.link("Acte d'union", "Acte d'union"));
 info_config.menu.append(
   new menu_class.link("Mouvements révolutionnaires", "Mouvements revolutionnaires")
 );
