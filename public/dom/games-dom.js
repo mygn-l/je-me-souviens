@@ -7,19 +7,10 @@ export const button = function (inner, handler) {
   return button_element;
 };
 
-export const input = function (handler) {
+export const input = function () {
   const div_element = document.createElement("div");
   const input_element = document.createElement("input");
-  input_element.addEventListener("keyup", function (e) {
-    if (e.key === "Enter") {
-      handler(input_element.value);
-    }
-  });
-  const button_element = button("Valider", function () {
-    handler(input_element.value);
-  });
   div_element.appendChild(input_element);
-  div_element.appendChild(button_element);
   return div_element;
 };
 
@@ -41,7 +32,7 @@ export const ui = function () {
   return document.getElementById("ui");
 };
 
-export const question_answer = function (question, answers, correct, handler) {
+export const question_answer = function (question, answers) {
   const div_element = document.createElement("div");
   div_element.setAttribute("class", "question-answer");
 
@@ -55,15 +46,7 @@ export const question_answer = function (question, answers, correct, handler) {
     answer_p_element.setAttribute("class", "answer-p");
     div_element.appendChild(answer_p_element);
   }
-  const input_element = input(function (value) {
-    if (value.toLowerCase() === correct.toLowerCase()) {
-      input_element.style.border = "10px solid green";
-      handler(true);
-    } else {
-      input_element.style.border = "10px solid red";
-      handler(false);
-    }
-  });
+  const input_element = input();
   div_element.appendChild(input_element);
   div_element.appendChild(document.createElement("br"));
   return div_element;
@@ -72,36 +55,34 @@ export const question_answer = function (question, answers, correct, handler) {
 export const quiz = function (quiz_config, handler) {
   const div_element = document.createElement("div");
 
-  const completed = [];
+  const question_answers = [];
 
   const check_complete = function () {
-    let count = 0;
     let good = 0;
-    for (let i = 0; i < completed.length; i++) {
-      if (completed[i] !== undefined) {
-        count += 1;
-        good = completed[i] === true ? good + 1 : good;
+    for (let i = 0; i < question_answers.length; i++) {
+      if (question_answers[i].value.toLowerCase() === quiz_config[i].correct.toLowerCase()) {
+        question_answers[i].style.border = "10px solid green";
+        good += 1;
+      } else {
+        question_answers[i].style.border = "10px solid red";
       }
     }
-    if (count >= 10) {
-      handler(good);
-    }
+    handler(good);
   };
 
   for (let i = 0; i < quiz_config.length; i++) {
     const question_answer_element = question_answer(
       quiz_config[i].question,
-      quiz_config[i].answers,
-      quiz_config[i].correct,
-      function (good) {
-        if (completed[i] === undefined) {
-          completed[i] = good;
-        }
-        check_complete();
-      }
+      quiz_config[i].answers
     );
     div_element.appendChild(question_answer_element);
+    question_answers.push(question_answer_element.querySelector("input"));
   }
+
+  const button_element = button("VALIDER", function () {
+    check_complete();
+  });
+  div_element.appendChild(button_element);
 
   return div_element;
 };
