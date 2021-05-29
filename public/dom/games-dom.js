@@ -58,9 +58,10 @@ export const question_answer = function (question, answers, correct, handler) {
   const input_element = input(function (value) {
     if (value.toLowerCase() === correct.toLowerCase()) {
       input_element.style.border = "10px solid green";
-      handler();
+      handler(true);
     } else {
       input_element.style.border = "10px solid red";
+      handler(false);
     }
   });
   div_element.appendChild(input_element);
@@ -75,25 +76,27 @@ export const quiz = function (quiz_config, handler) {
 
   const check_complete = function () {
     let count = 0;
+    let good = 0;
     for (let i = 0; i < completed.length; i++) {
-      if (completed[i] === true) {
+      if (completed[i] !== undefined) {
         count += 1;
+        good = completed[i] === true ? good + 1 : good;
       }
     }
-    if (count >= completed.length) {
-      handler();
+    if (count >= 10) {
+      handler(good);
     }
   };
 
   for (let i = 0; i < quiz_config.length; i++) {
-    completed.push(false);
-
     const question_answer_element = question_answer(
       quiz_config[i].question,
       quiz_config[i].answers,
       quiz_config[i].correct,
-      function () {
-        completed[i] = true;
+      function (good) {
+        if (completed[i] === undefined) {
+          completed[i] = good;
+        }
         check_complete();
       }
     );

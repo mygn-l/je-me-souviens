@@ -7,8 +7,8 @@ let quiz_button = button("Quiz", function () {
   GET("/games/quiz", async function (res) {
     const quiz_config = await res.json();
     ui().appendChild(
-      quiz(quiz_config, function () {
-        alert("QUIZ COMPLÉTÉ");
+      quiz(quiz_config, function (good) {
+        alert("QUIZ COMPLÉTÉ \n NOTE: " + good + "/10");
       })
     );
   });
