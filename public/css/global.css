@@ -162,6 +162,14 @@ main,
   padding-left: 40px;
 }
 
+.menu-button {
+  padding: 20px;
+  font-size: 40px;
+  border: 2px solid white;
+  border-radius: 10px;
+  margin: 10px;
+}
+
 footer {
   height: 100%;
   background-color: #2e2a28;

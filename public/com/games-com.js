@@ -3,15 +3,16 @@ import { GET } from "/public/lib/com.js";
 
 title().innerHTML = "Games";
 
-menu().appendChild(
-  button("Quiz", function () {
-    GET("/games/quiz", async function (res) {
-      const quiz_config = await res.json();
-      ui().appendChild(
-        quiz(quiz_config, function () {
-          alert("QUIZ COMPLÉTÉ");
-        })
-      );
-    });
-  })
-);
+let quiz_button = button("Quiz", function () {
+  GET("/games/quiz", async function (res) {
+    const quiz_config = await res.json();
+    ui().appendChild(
+      quiz(quiz_config, function () {
+        alert("QUIZ COMPLÉTÉ");
+      })
+    );
+  });
+});
+quiz_button.setAttribute("class", "menu-button");
+
+menu().appendChild(quiz_button);
