@@ -1,9 +1,17 @@
-document.getElementsByTagName("title")[0].innerHTML = "Games";
+import { button, input, menu, title, ui, quiz } from "/public/dom/games-dom.js";
+import { GET } from "/public/lib/com.js";
 
-import { button } from "/public/dom/games-dom.js";
+title().innerHTML = "Games";
 
-document.getElementById("menu").appendChild(
+menu().appendChild(
   button("Quiz", function () {
-    document.getElementById("ui").innerHTML = "HELLO";
+    GET("/games/quiz", async function (res) {
+      const quiz_config = await res.json();
+      ui().appendChild(
+        quiz(quiz_config, function () {
+          alert("QUIZ COMPLÉTÉ");
+        })
+      );
+    });
   })
 );

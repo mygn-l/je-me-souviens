@@ -69,7 +69,8 @@ header nav a {
   padding: 10px;
 }
 
-body > h1, body > h2 {
+body > h1,
+body > h2 {
   margin: 0px;
   background-color: #2e2a28;
   padding: 50px;
@@ -77,7 +78,8 @@ body > h1, body > h2 {
   opacity: 0.9;
 }
 
-main, #menu {
+main,
+#menu {
   background-color: #2e2a28;
   opacity: 0.95;
   width: 100%;
@@ -150,6 +152,14 @@ main, #menu {
   position: absolute;
   top: -50px;
   right: 50px;
+}
+
+.question-answer {
+  padding-left: 20px;
+}
+
+.answer-p {
+  padding-left: 40px;
 }
 
 footer {

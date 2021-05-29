@@ -4,6 +4,8 @@ const router = express.Router();
 
 const info_config = require("../config/info-config");
 
+const quiz_config = require("../config/quiz-config");
+
 const battle_config = require("../config/battle-config");
 
 router.get("/", function (req, res) {
@@ -26,6 +28,10 @@ router.get("/info/battle/:name", function (req, res) {
 
 router.get("/games", function (req, res) {
   res.render("pages/games.ejs");
+});
+
+router.get("/games/quiz", function (req, res) {
+  res.send(JSON.stringify(quiz_config));
 });
 
 router.use(function (req, res) {
