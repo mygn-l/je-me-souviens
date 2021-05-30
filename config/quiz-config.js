@@ -74,7 +74,7 @@ quiz_config.push(
 
 quiz_config.push(
   new question_answer(
-    "Combien de prisoniers ont été éxiles en Australie.",
+    "Combien de prisoniers ont été éxiles en Australie?",
     ["114", "141", "114", "69"],
     "b"
   )
