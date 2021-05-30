@@ -36,6 +36,7 @@ info_config.menu.append(
   new menu_class.link("Mouvements révolutionnaires", "Mouvements revolutionnaires")
 );
 info_config.menu.append(new menu_class.link("Rapport durham", "Rapport durham"));
+info_config.menu.append(new menu_class.link("92 Resolutions", "92 Resolutions"));
 
 info_config.menu.append(new menu_class.link("Hommage aux morts", "Hommage aux morts"));
 
@@ -251,6 +252,15 @@ info_config.pages = new page_class.pages();
     new page_class.parag(fs.readFileSync(__dirname + "/txt/Acte-constitutionnel.txt", "utf8"))
   );
   col_1.append(new page_class.image("MEME", "/public/img/acte-constitutionnel.png"));
+  doc.append(col_1);
+  info_config.pages.append(doc);
+}
+
+{
+  let doc = new page_class.doc("92 Resolutions");
+  let col_1 = new page_class.column();
+  col_1.append(new page_class.title("92 RESOLUTIONS"));
+  col_1.append(new page_class.parag("https://beq.ebooksgratuits.com/pdf/92resolutions.pdf"));
   doc.append(col_1);
   info_config.pages.append(doc);
 }
