@@ -14,6 +14,7 @@ info_config.menu.append(new menu_class.title("LA RÉVOLUTION PATRIOTE"));
 info_config.menu.append(new menu_class.intertitle("Causes"));
 info_config.menu.append(new menu_class.link("Crise agricole", "Crise agricole"));
 info_config.menu.append(new menu_class.link("Crise subside", "Crise subside"));
+info_config.menu.append(new menu_class.link("Après guerre", "Apres guerre"));
 info_config.menu.append(new menu_class.intertitle("Batailles"));
 info_config.menu.append(new menu_class.link("St-Denis", "St-Denis"));
 info_config.menu.append(new menu_class.link("St-Charles", "St-Charles"));
@@ -27,9 +28,6 @@ info_config.menu.append(new menu_class.link("Morres corner", "Morres corner"));
 info_config.menu.append(
   new menu_class.link("Rebéllion du Haut Canada", "Rebellion du Haut Canada")
 );
-info_config.menu.append(new menu_class.intertitle("Après guerre"));
-info_config.menu.append(new menu_class.link("Après guerre", "Apres guerre"));
-info_config.menu.append(new menu_class.link("Rapport durham", "Rapport durham"));
 
 info_config.menu.append(new menu_class.title("LES POLITIQUES"));
 info_config.menu.append(new menu_class.link("Acte d'union", "Acte d'union"));
@@ -37,6 +35,7 @@ info_config.menu.append(new menu_class.link("Acte constitutionnel", "Acte consti
 info_config.menu.append(
   new menu_class.link("Mouvements révolutionnaires", "Mouvements revolutionnaires")
 );
+info_config.menu.append(new menu_class.link("Rapport durham", "Rapport durham"));
 
 info_config.menu.append(new menu_class.link("Hommage aux morts", "Hommage aux morts"));
 
@@ -194,7 +193,10 @@ info_config.pages = new page_class.pages();
   col_1.append(
     new page_class.parag(fs.readFileSync(__dirname + "/txt/Rapport-durham.txt", "utf8"))
   );
+  let col_2 = new page_class.column();
+  col_2.append(new page_class.image("MEME", "/public/img/rapport-durham.png"));
   doc.append(col_1);
+  doc.append(col_2);
   info_config.pages.append(doc);
 }
 
@@ -207,6 +209,7 @@ info_config.pages = new page_class.pages();
       fs.readFileSync(__dirname + "/txt/Mouvements-Revolutionnaires.txt", "utf8")
     )
   );
+  col_1.append(new page_class.image("MEME", "/public/img/enfuis.png"));
   doc.append(col_1);
   info_config.pages.append(doc);
 }
@@ -216,6 +219,7 @@ info_config.pages = new page_class.pages();
   let col_1 = new page_class.column();
   col_1.append(new page_class.title("ACTE D'UNION"));
   col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/Acte-union.txt", "utf8")));
+  col_1.append(new page_class.image("MEME", "/public/img/mouvement-revolutionnaire.png"));
   doc.append(col_1);
   info_config.pages.append(doc);
 }
@@ -226,7 +230,7 @@ info_config.pages = new page_class.pages();
   col_1.append(new page_class.title("HOMMAGE AUX MORTS"));
   col_1.append(new page_class.image("Joseph Duquet", "/public/img/duquet.png"));
   col_1.append(new page_class.image("Pierre-Théophile Decoigne", "/public/img/decoigne.png"));
-  col_1.append(new page_class.image("Une marche ensemble...", "/public/img/decoigne-2.png"));
+  col_1.append(new page_class.image("Joseph-Jacques Robert", "/public/img/decoigne-2.png"));
   col_1.append(new page_class.image("Charles Hindelang", "/public/img/hinderlang.png"));
   col_1.append(
     new page_class.image(
@@ -234,7 +238,7 @@ info_config.pages = new page_class.pages();
       "/public/img/francois-marie-thomas.png"
     )
   );
-  col_1.append(new page_class.image("Bonus", "/public/img/bonus.png"));
+  col_1.append(new page_class.image("", "/public/img/bonus.png"));
   doc.append(col_1);
   info_config.pages.append(doc);
 }
@@ -246,6 +250,7 @@ info_config.pages = new page_class.pages();
   col_1.append(
     new page_class.parag(fs.readFileSync(__dirname + "/txt/Acte-constitutionnel.txt", "utf8"))
   );
+  col_1.append(new page_class.image("MEME", "/public/img/acte-constitutionnel.png"));
   doc.append(col_1);
   info_config.pages.append(doc);
 }
