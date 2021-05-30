@@ -261,6 +261,7 @@ info_config.pages = new page_class.pages();
   let col_1 = new page_class.column();
   col_1.append(new page_class.title("92 RESOLUTIONS"));
   col_1.append(new page_class.parag("https://beq.ebooksgratuits.com/pdf/92resolutions.pdf"));
+  col_1.append(new page_class.image("MEME", "/public/img/92-resolutions.png"));
   doc.append(col_1);
   info_config.pages.append(doc);
 }
