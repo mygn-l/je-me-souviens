@@ -112,6 +112,7 @@ info_config.pages = new page_class.pages();
   let col_1 = new page_class.column();
   col_1.append(new page_class.title("ST-EUSTACHE"));
   col_1.append(new page_class.parag(fs.readFileSync(__dirname + "/txt/St-Eustache.txt", "utf8")));
+  col_1.append(new page_class.image("MEME", "/public/img/st-eustache.png"));
   doc.append(col_1);
   info_config.pages.append(doc);
 }
